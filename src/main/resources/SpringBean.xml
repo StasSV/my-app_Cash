@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+
+	<context:annotation-config />
+
+ 	 
+
+ <bean id="vw" class="com.mycompany.app.VolksWagen" />
+
+
+	<bean id="dp" class="com.mycompany.app.DrivProcess" />
+
+<!-- AspectJ using Annotations -->	
+ <aop:aspectj-autoproxy />  
+
+<!-- To test AspectJ using XML uncomment all <aop:config> and comment a string below this comment -->
+
+<!-- AspectJ using XML  -->	
+<!--   	<aop:config>
+		<aop:aspect ref="dp">
+			<aop:pointcut
+				expression="execution(* com.mycompany.app.Auto.beep(..))"
+				id="beeping" />
+			<aop:before pointcut-ref="beeping" method="takeSeats" />
+			<aop:before pointcut-ref="beeping" method="turnOffCellPhones" />
+			<aop:after-returning pointcut-ref="beeping"
+				method="applaud" />
+			<aop:after-throwing pointcut-ref="beeping" method="demandRefund" />
+		</aop:aspect>
+	</aop:config>  -->
+	
+</beans>
+
+	 
+	<!--Впровадження через конструктор -->
+	<!-- <bean id="firstDriver" class="com.mycompany.app.FirstDriver"> <constructor-arg 
+		value="Sergio" /> </bean> <bean id="secondDriver" class="com.mycompany.app.SecondDriver"> 
+		<constructor-arg value="Vitaliy" /> </bean> -->
+
+
+
+	<!--<bean id="vw" class="com.mycompany.app.VolksWagen"> Впровадження через 
+		поля <property name="beep" ref="beeplouder"/> Впровадження списків <property 
+		name="drivers"> <list> <ref bean="firstDriver"/> <ref bean="secondDriver"/> 
+		</list> </property> </bean> AUTOWIRING <bean id="vw" class="com.mycompany.app.VolksWagen" 
+		autowire="constructor" /> --> 
+		
+ 
+
+
+
+
+
+
