@@ -1,46 +1,20 @@
 package com.mycompany.app;
 
-import java.util.List;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class Student {
-	private int studentId;
-	private String pib;
-	private int course;
+	@Id
+	@GeneratedValue
+	private int id;
+	private String name;
 
-	public Student(String string, int i) {
-		this.pib = string;
-		this.course=i;
-	}
-	
-
-
-	public Student() {
-		// TODO Auto-generated constructor stub
-	}
-
-	// Geters and seters
-	public int getStudentId() {
-		return studentId;
-	}
-
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
-	}
-
-	public String getPib() {
-		return pib;
-	}
-
-	public void setPib(String pib) {
-		this.pib = pib;
-	}
-
-	public int getCourse() {
-		return course;
-	}
-
-	public void setCourse(int course) {
-		this.course = course;
-	}
+	@Embedded
+	private Phone phoneNumber;
+	@Embedded
+	private Address homeAddress;
 
 }
