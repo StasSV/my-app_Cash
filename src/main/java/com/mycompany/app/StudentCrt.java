@@ -3,6 +3,9 @@ package com.mycompany.app;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.googlecode.ehcache.annotations.Cacheable;
+
 import javax.persistence.EntityManager;
 
 
@@ -17,7 +20,7 @@ public class StudentCrt {
             em.persist(student);
             return student;
         }
-
+        @Cacheable(cacheName = "getStudent")
         public Student getStudent(int id) {
             return em.find(Student.class,id);
         }
