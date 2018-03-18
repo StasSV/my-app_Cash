@@ -53,8 +53,8 @@ http://www.springframework.org/schema/cache
 	</bean>
 
 	<bean id="worker" class="com.mycompany.app.LecturesWorker" />
-	<ehcache:annotation-driven cache-manager="ehCacheManager" />
-	<!--  <ehcache:annotation-driven cache-manager="cacheManager" /> -->
+	
+	<ehcache:annotation-driven cache-manager="cacheManager" /> 
 	<bean id="cacheManager"
 		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
 		<property name="configLocation" value="ehcache.xml" />

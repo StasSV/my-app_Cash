@@ -15,7 +15,7 @@ public class LecturesWorker {
     public JdbcTemplate jdbcTemplate;
 
     private static final String SQL_SELECT_STUDENT_BY_ID = "select id, pib, course from students where id = ?";
-    @Cacheable(cacheName = "getStudentsByID")
+    @Cacheable(cacheName = "studentsCache")
     public Student getStudentsByID(int id){
         return jdbcTemplate.queryForObject(SQL_SELECT_STUDENT_BY_ID,
                 new RowMapper<Student>() {
