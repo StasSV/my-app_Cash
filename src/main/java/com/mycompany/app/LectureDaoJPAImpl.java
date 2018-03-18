@@ -1,5 +1,6 @@
 package com.mycompany.app;
 
+<<<<<<< HEAD
 import java.util.*;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -25,4 +26,24 @@ public class LectureDaoJPAImpl implements LecturesDao {
 	public void saveLecture(Lecture lecture) {
 		em.merge(lecture);
 	}
+=======
+@Repository
+@Transactional
+public class LectureDaoJPAImpl implements LecturesDao{
+@PersistenceContext
+private EntityManager em;
+
+public Lecture addLecture(Lecture lecture) {
+em.persist(lecture);
+return lecture;
+}
+
+public Lecture getLecture(int id) {
+return em.find(Lecture.class,id);
+}
+
+public void saveLecture(Lecture lecture) {
+em.merge(lecture);
+}
+>>>>>>> origin/master
 }
